@@ -22,25 +22,6 @@ public class HashSet<T> implements Set<T> {
                 "capacity must be a positive, non-zero value! Provided: " + capacity);
         }
 
-        // We want to do the following:
-        //
-        //     table = new LinkedList<String>[capacity];
-        //
-        // However, that won't compile ("generic array creation")
-        // since Java generics and arrays don't get along very well.
-        // Instead we need to do the following:
-        //
-        //     table = new LinkedList[capacity];
-        //
-        // The above will compile, but with a warning. The proper
-        // approach is to document why the warning can be safely
-        // ignored and then suppress the warning. Thus:
-
-        /*
-         * This array will contain only LinkedList<T>
-         * instances, all created in the add method. This
-         * is sufficient to ensure type safety.
-         */
         @SuppressWarnings("unchecked") // for this declaration only
         List<T>[] t = new LinkedList[capacity];
         table = t;

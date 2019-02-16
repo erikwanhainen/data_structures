@@ -12,6 +12,7 @@ import java.util.Arrays;
  * Test class for Postfix
  *
  * @author Simon Larsén
+ * @author Erik Vanhainen
  * @version 2018-12-15
  */
 public class PostfixTest {

@@ -8,7 +8,7 @@ import java.util.NoSuchElementException;
 public class LinkedList<T> {
     private ListElement<T> first;   // First element in list.
     private ListElement<T> last;    // Last element in list.
-    private int size;               // Number of elements in list.
+    private int size;               // Number of elements in lis.
 
     /**
      * A list element.

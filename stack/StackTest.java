@@ -13,9 +13,6 @@ import java.util.stream.IntStream;
 /**
  * Abstract test class for Stack implementations.
  *
- * Implementing test classes must only implement the getIntegerStack
- * method. Be careful not to override ANY other methods!
- *
  * @author Simon Larsén
  * @author Erik Vanhainen
  * @version 2018-12-15

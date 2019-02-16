@@ -13,8 +13,9 @@ import java.util.stream.IntStream;
 /**
  * Test class for a tree.
  *
- * @author Simon Larsén (PUT YOUR NAME HERE)
- * @version 2019-01-20 (UPDATE THIS)
+ * @author Simon Larsén
+ * @author Erik Vanhainen
+ * @version 2019-01-20
  */
 public class TreeTest {
     @Rule public Timeout globalTimeout = Timeout.seconds(5);
@@ -72,20 +73,6 @@ public class TreeTest {
             // Assert
             .forEach(wasInserted -> assertFalse(wasInserted));
 
-        /**
-         * Again, a stream! What happens above is the following:
-         *
-         * IntStream.range(0, numDuplicates): creates a stream of
-         * integers from 0 to numDuplicates - 1
-         *
-         * .mapToObj(i -> tree.insert(elem)): for every value produced
-         * by the range stream, insert elem into the tree. The `i` is
-         * not actually used. The resulting strem is the return values of
-         * each `tree.insert(elem)` statement.
-         *
-         * .forEach(wasInserted -> asertFalse(wasInserted)): For each return
-         * value in the mapToObj stream, assert that it is false!
-         */
     }
 
     // Tests for search

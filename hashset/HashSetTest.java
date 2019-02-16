@@ -14,6 +14,7 @@ import java.util.Arrays;
  * This test class mostly contains only hash collision tests.
  *
  * @author Simon Larsén
+ * @author Erik Vanhainen
  * @version 2018-02-13
  */
 public class HashSetTest extends SetTest {

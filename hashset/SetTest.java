@@ -16,6 +16,7 @@ import java.util.stream.IntStream;
  * Implementing test classes must override the getIntegerSet method.
  *
  * @author Simon Larsén
+ * @author Erik Vanhainen
  * @version 2018-12-16
  */
 public abstract class SetTest {
@@ -42,8 +43,6 @@ public abstract class SetTest {
         set = getIntegerSet(CAPACITY);
         uniqueSetElements =
             new int[] {-234, 32, 443, Integer.MAX_VALUE, Integer.MIN_VALUE, 0, -231};
-        // Works because all elements in uniqueSetElements are more than 2 values apart
-        // -2 as Integer.MIN_VALUE - 1 == Integer.MAX_VALUE because of underflow
         elementsNotInSet = Arrays.stream(uniqueSetElements).map(elem -> elem - 2).toArray();
 
         for (int elem : uniqueSetElements) {
@@ -60,30 +59,6 @@ public abstract class SetTest {
             .mapToObj(elem -> set.contains(elem))
             // Assert
             .forEach(contained -> assertThat(contained, is(true)));
-
-        /**
-         * Look another stream! How does this work again?
-         *
-         * Arrays.stream(uniqueSetElements): turns the array into a sequence
-         * of values (a stream of values, so to speak)
-         *
-         * mapToObj(elem -> set.contains(elem)): takes every value (elem) fed in by
-         * the stream, computes set.contains(elem) and feeds the results out
-         * into a new stream.
-         *
-         * forEach(contained -> assertThat(contained, is(true))): takes every value
-         * (contained) produced by the mapToObj stream, and performs the
-         * assertTrue method!
-         *
-         * For the more iterative mindset, the stream essentially does the same
-         * thing as this loop:
-         *
-         * for (int elem : uniqueSetElements) {
-         *     boolean contained = set.contains(elem);
-         *     assertThat(contained, is(true));
-         * }
-         *
-         */
     }
 
     @Test
